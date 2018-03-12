@@ -1,0 +1,39 @@
+{
+  "name": "above-the-battle",
+  "description": "Above the battle blog",
+  "version": "1.0.0",
+  "author": "Jacob Roman <jcbrmn06@gmail.com>",
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.4",
+    "@fortawesome/react-fontawesome": "0.0.17",
+    "bourbon": "^5.0.0",
+    "bourbon-neat": "^1.9.0",
+    "css-reset-and-normalize-sass": "^0.1.2",
+    "gatsby": "^1.9.204",
+    "gatsby-image": "^1.0.38",
+    "gatsby-link": "^1.6.37",
+    "gatsby-plugin-react-helmet": "^2.0.5",
+    "gatsby-plugin-sass": "^1.0.20",
+    "gatsby-source-contentful": "^1.3.38",
+    "gatsby-transformer-remark": "^1.7.33",
+    "prop-types": "^15.6.1",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.10.2"
+  }
+}

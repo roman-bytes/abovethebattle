@@ -1,0 +1,23 @@
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules/
+.cache/
+# Build directory
+public/
+.DS_Store
+yarn-error.log
+.eslintignore
+.eslintrc.json
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+.gatsby-context.js
+.sass-cache/
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Logs
+logs
+*.log
