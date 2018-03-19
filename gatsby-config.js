@@ -3,14 +3,45 @@ module.exports = {
     title: 'Gatsby Default Starter',
   },
   plugins: [
-    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: `t8j0ewtik3c3`,
-        accessToken: `1fd4c030cd175cb0a9f9a42e2ca0323d4bede2f2cfefa7b8d80164da7987df42`
+        spaceId: 't8j0ewtik3c3',
+        accessToken: '1fd4c030cd175cb0a9f9a42e2ca0323d4bede2f2cfefa7b8d80164da7987df42'
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'img',
+        path: '${__dirname}/src/img/'
+      }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              wrapperStyle: 'margin-bottom: 1.0725rem',
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark'
   ],

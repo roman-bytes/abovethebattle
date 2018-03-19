@@ -5,9 +5,11 @@
 
 // Vars
 @import "./variables";
+@import "./global";
 
 // Components
 @import "./components/social";
+@import "./components/sideImage";
 
 // Pages
 @import "./pages/index";

@@ -1,0 +1,19 @@
+.outer-wrapper {
+  @include outer-container(70vw);
+  @include margin(0);
+  @include padding(null 11px null null);
+  box-shadow: 16px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  background: $white;
+  z-index: 1;
+
+  .content-wrapper {
+    @include margin(0 0 0 12vw);
+    max-width: 57vw;
+
+    .wrapper {
+      border-right: 1px solid $pink;
+      padding-right: 73px;
+    }
+  }
+
+}
