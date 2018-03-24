@@ -14,5 +14,5 @@ export default class SideImage extends Component {
 }
 
 SideImage.propTypes = {
-  image: PropTypes.string.isRequired
+  image: PropTypes.object.isRequired
 };

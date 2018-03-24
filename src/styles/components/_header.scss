@@ -1,0 +1,33 @@
+header {
+  width: 100%;
+  @include flex-grid;
+  padding-top: 80px;
+
+  .gatsby-image-outer-wrapper {
+    width: 286px;
+  }
+
+  ul.nav {
+    @include flex-grid;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 0 auto;
+    @include margin(null null null 35px);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: $lightgrey;
+
+    .divider {
+      width: 2px;
+      height: 20px;
+      background: $lightgrey;
+    }
+
+    li {
+      &:hover {
+        color: $darkgrey;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import Menu from './Menu';
 
-const Header = () => (
-  <div/>
-);
+export default class Header extends Component {
+  render() {
+    const { logo } = this.props;
+    return (
+      <header>
+        <Img sizes={logo} />
+        <Menu />
+      </header>
+    );
+  }
+}
 
-export default Header;
+Header.propTypes = {
+  logo: PropTypes.object
+};

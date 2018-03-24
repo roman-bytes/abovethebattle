@@ -1,37 +1,28 @@
-import React from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import BlogPost from '../components/BlogPost';
+import Header from '../components/Header';
 import '../styles/main.scss';
 
-
-const BlogPost = ({ node }) => {
-  const featImage = node.featuredImage ? node.featuredImage.file.url : '';
-  return (
-    <div style={{
-      marginBottom: '1.5rem',
-      padding: '1.5rem',
-      border: '1px solid #ccc'
-    }}>
-      <h3><Link to={node.slug}>{node.title}</Link></h3>
-      <p>{node.createdAt}</p>
-      <div>
-        <div>
-          <img src={featImage}/>
-        </div>
-        <div>{node.content.childMarkdownRemark.excerpt}</div>
+export default class IndexPage extends Component {
+  render() {
+    const { data } = this.props;
+    return (
+      <div className='wrapper'>
+        <Header logo={data.imageLogo.sizes}/>
+        {
+          data.allContentfulBlogPost.edges.map((edge) => {
+            return ( <BlogPost key={edge.node.id} node={edge.node} /> );
+          })
+        }
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-const IndexPage = (props) => {
-  return (
-    <div className='wrapper'>
-      {props.data.allContentfulBlogPost.edges.map((edge) => <BlogPost key={edge.node.id} node={edge.node} />)}
-    </div>
-  );
+IndexPage.propTypes = {
+  data: PropTypes.object
 };
-
-export default IndexPage;
 
 export const pageQuery = graphql`
   query pageQuery {
@@ -79,6 +70,11 @@ export const pageQuery = graphql`
             oldPublishDate
           }
         }
+      }
+    }
+    imageLogo: imageSharp(id: { regex: "/logo.png/" }) {
+      sizes(maxWidth: 286) {
+        ...GatsbyImageSharpSizes
       }
     }
   }
