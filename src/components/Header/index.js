@@ -7,10 +7,10 @@ export default class Header extends Component {
   render() {
     const { logo } = this.props;
     return (
-      <header>
+      <div className='header'>
         <Img sizes={logo} />
         <Menu />
-      </header>
+      </div>
     );
   }
 }

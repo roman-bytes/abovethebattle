@@ -8,11 +8,17 @@ export default class IndexPage extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className='wrapper'>
+      <div className='post-list'>
         <Header logo={data.imageLogo.sizes}/>
         {
-          data.allContentfulBlogPost.edges.map((edge) => {
-            return ( <BlogPost key={edge.node.id} node={edge.node} /> );
+          data.allContentfulBlogPost.edges.map((edge, i) => {
+            return (
+              <BlogPost
+                key={edge.node.id}
+                node={edge.node}
+                index={i}
+              />
+            );
           })
         }
       </div>
@@ -46,6 +52,15 @@ export const pageQuery = graphql`
             }
           }
           featuredImage {
+            sizes {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
             id
             file {
               url

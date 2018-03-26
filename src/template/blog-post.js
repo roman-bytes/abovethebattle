@@ -36,6 +36,15 @@ export const pageQuery = graphql`
       title
       createdAt(formatString: "MMMM DD, YYYY")
       featuredImage {
+        sizes {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
         id
         file {
           url
