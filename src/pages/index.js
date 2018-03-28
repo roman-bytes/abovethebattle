@@ -48,7 +48,7 @@ export const pageQuery = graphql`
           slug
           content {
             childMarkdownRemark {
-              excerpt
+              excerpt(pruneLength: 270)
             }
           }
           featuredImage {

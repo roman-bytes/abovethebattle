@@ -15,14 +15,41 @@
       padding-right: 73px;
 
       .featured {
-        h1 {
-          a {
+        @include margin(131px null 147px null);
+
+        .post-heading {
+          h1 {
             font-size: 36px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
+            font-weight: 700;
             color: $darkgrey;
             text-decoration: none;
+            line-height: 44px;
           }
+
+          .heading-line {
+            @include margin(20px null 25px null);
+          }
+        }
+
+        .excerpt {
+          width: 55%;
+          font-family: 'Hind', sans-serif;
+          font-size: 14px;
+          color: $featuredText;
+          line-height: 23px;
+          @include margin(null null 20px null);
+        }
+
+        .read-more {
+          display: inline-block;
+          background: $pink;
+          color: $white;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 900;
+          line-height: 22px;
+          text-decoration: none;
+          padding: 20px 40px;
         }
       }
     }
