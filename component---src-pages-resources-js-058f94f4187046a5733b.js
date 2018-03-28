@@ -1,0 +1,2 @@
+webpackJsonp([79718873386587],{213:function(e,t,l){"use strict";function u(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var a=l(4),n=u(a),o=l(67),r=u(o),c=function(){return n.default.createElement("div",null,n.default.createElement("h1",null,"Hi from the resources page"),n.default.createElement("p",null,"Welcome to page resources"),n.default.createElement(r.default,{to:"/"},"Go back to the homepage"))};t.default=c,e.exports=t.default}});
+//# sourceMappingURL=component---src-pages-resources-js-058f94f4187046a5733b.js.map
