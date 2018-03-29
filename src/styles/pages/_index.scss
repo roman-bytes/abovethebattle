@@ -13,6 +13,7 @@
     .post-list {
       border-right: 1px solid $pink;
       padding-right: 73px;
+      @include flex-grid();
 
       .featured {
         @include margin(131px null 147px null);
@@ -50,6 +51,64 @@
           line-height: 22px;
           text-decoration: none;
           padding: 20px 40px;
+        }
+      }
+
+      .small-featured {
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 242px;
+        @include padding(25px 25px null null);
+        box-shadow: 0px -10px 0px $lightgrey;
+
+        .secondary-heading {
+          h2 {
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+
+            a {
+              color: $darkgrey;
+              text-decoration: none;
+            }
+          }
+
+          svg {
+            @include margin(10px null);
+          }
+
+          p {
+            font-size: 12px;
+            font-family: 'Hind', sans-serif;
+            color: $lightgrey;
+          }
+        }
+
+        &:hover {
+          box-shadow: 0px -10px 0px $pink;
+          cursor: pointer;
+
+          .secondary-heading {
+            h2 {
+              a {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      .other {
+        width: 100%;
+        @include flex-grid();
+        @include padding(20px 10px);
+        border-bottom: 1px solid $pink;
+
+        .gatsby-image-outer-wrapper {
+          width: 170px;
+          @include margin(null 10px null null);
+          @include padding(null 10px null null);
+          border-right: 1px solid $pink;
         }
       }
     }
