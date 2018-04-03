@@ -8,6 +8,7 @@
 
   .content-wrapper {
     @include margin(0 0 0 12vw);
+    @include padding(0 0 50px 0);
     max-width: 57vw;
 
     .post-list {
@@ -105,11 +106,65 @@
         border-bottom: 1px solid $pink;
 
         .gatsby-image-outer-wrapper {
-          width: 170px;
+          max-width: 270px;
+          flex: 1 0 auto;
           @include margin(null 10px null null);
           @include padding(null 10px null null);
           border-right: 1px solid $pink;
         }
+      }
+
+      > .margin-top {
+        @include margin(50px null null null);
+      }
+
+      .post {
+        .wrap {
+          @include flex-grid();
+          flex-direction: column;
+          align-items: flex-start;
+
+          .categories {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 11px;
+            color: $font;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            @include margin(15px null);
+          }
+
+          h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: $font;
+            @include margin(null null auto null);
+          }
+
+          .read-more {
+            display: inline-block;
+            background: $pink;
+            color: $white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            padding: 12px 40px;
+            @include margin(null null 20px null);
+          }
+
+          p {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 9px;
+            color: $font;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+        }
+
       }
     }
   }

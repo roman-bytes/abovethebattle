@@ -17,7 +17,8 @@ export default class BlogPost extends Component {
     const postClasses = classNames('post', {
       'featured': index === 0,
       'small-featured': index < 4 && index !== 0,
-      'other': index > 4
+      'other': index > 4,
+      'margin-top': index === 5
     });
     const categories = node.category
       && Array.prototype.map.call(node.category, s => s.category).toString();
@@ -27,26 +28,32 @@ export default class BlogPost extends Component {
         {index > 4 && featImage}
         {
           index > 4 && (
-            <div className='categories'>{categories}</div>
+            <div className='wrap'>
+              {
+                index > 4 && (
+                  <div className='categories'>{categories}</div>
+                )
+              }
+              {
+                index > 4 && (
+                  <h3>{node.title}</h3>
+                )
+              }
+              {
+                index > 4 && index !== 0 && (
+                  <Link
+                  to={node.slug}
+                  className='read-more'
+                  >
+                  READ ARTICLE
+                  </Link>
+                )
+              }
+              {
+                index > 4 && (<p>{node.createdAt}</p>)
+              }
+            </div>
           )
-        }
-        {
-          index > 4 && (
-            <h3>{node.title}</h3>
-          )
-        }
-        {
-          index > 4 && index !== 0 && (
-            <Link
-            to={node.slug}
-            className='read-more'
-            >
-            READ ARTICLE
-            </Link>
-          )
-        }
-        {
-          index > 4 && (<p>{node.createdAt}</p>)
         }
         {
           index === 0
