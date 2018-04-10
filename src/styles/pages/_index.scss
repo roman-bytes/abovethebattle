@@ -8,12 +8,11 @@
 
   .content-wrapper {
     @include margin(0 0 0 12vw);
-    @include padding(0 0 50px 0);
+    @include padding(0 73px 50px 0);
+    border-right: 1px solid $pink;
     max-width: 57vw;
 
     .post-list {
-      border-right: 1px solid $pink;
-      padding-right: 73px;
       @include flex-grid();
 
       .featured {

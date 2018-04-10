@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Social from '../components/Social';
 import SideImage from '../components/SideImage';
+import Header from '../components/Header';
 
 const TemplateWrapper = ({ children, data }) => {
   return (
@@ -20,7 +21,8 @@ const TemplateWrapper = ({ children, data }) => {
       >
         <Social />
         <div className='content-wrapper'>
-        {children()}
+          <Header logo={data.imageLogo.sizes}/>
+          {children()}
         </div>
       </div>
       <SideImage image={data.imageOne.sizes} />
@@ -44,6 +46,11 @@ export const imageQuery = graphql`
     }
     imageTwo: imageSharp(id: { regex: "/pattern.png/" }) {
       sizes(maxWidth: 400) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    imageLogo: imageSharp(id: { regex: "/logo.png/" }) {
+      sizes(maxWidth: 286) {
         ...GatsbyImageSharpSizes
       }
     }

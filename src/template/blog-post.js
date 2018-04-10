@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
+import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 
 class BlogPost extends Component {
   render() {
-    const { title, createdAt, featuredImage, content } = this.props.data.contentfulBlogPost;
-    const featImage = featuredImage ? featuredImage.file.url : '';
+    const { data } = this.props;
+    const { title, createdAt, featuredImage, content } = data.contentfulBlogPost;
+    const featImage = featuredImage ? featuredImage.sizes : '';
     return (
-      <div>
-        <h1 style={{
-          borderBottom: '1px solid #ccc',
-          paddingBottom: '0.5rem'
-        }}>
+      <div className='singe-post' >
+        <Img sizes={featImage}/>
+        <h1>
           {title}
         </h1>
-        <p>{createdAt}</p>
-        <div>
-          <img src={featImage}/>
-        </div>
-        <hr />
-        <div dangerouslySetInnerHTML={{__html:content.childMarkdownRemark.html}} />
+        <div className='post-date'>{createdAt}</div>
+        <div
+          className='post-content'
+          dangerouslySetInnerHTML={{__html:content.childMarkdownRemark.html}}
+        />
       </div>
     );
   }

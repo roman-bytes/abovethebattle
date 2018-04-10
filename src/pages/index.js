@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BlogPost from '../components/BlogPost';
-import Header from '../components/Header';
 import '../styles/main.scss';
 
 export default class IndexPage extends Component {
@@ -9,7 +8,6 @@ export default class IndexPage extends Component {
     const { data } = this.props;
     return (
       <div className='post-list'>
-        <Header logo={data.imageLogo.sizes}/>
         {
           data.allContentfulBlogPost.edges.map((edge, i) => {
             return (
@@ -85,11 +83,6 @@ export const pageQuery = graphql`
             oldPublishDate
           }
         }
-      }
-    }
-    imageLogo: imageSharp(id: { regex: "/logo.png/" }) {
-      sizes(maxWidth: 286) {
-        ...GatsbyImageSharpSizes
       }
     }
   }
