@@ -8,7 +8,9 @@ export default class Header extends Component {
     const { logo } = this.props;
     return (
       <div className='header'>
-        <Img sizes={logo} />
+        <a href="/" ariaLabel='Above the battle homepage'>
+          <Img sizes={logo} ariaHidden='true'/>
+        </a>
         <Menu />
       </div>
     );

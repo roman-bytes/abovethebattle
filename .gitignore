@@ -21,3 +21,4 @@ coverage
 # Logs
 logs
 *.log
+queries.txt

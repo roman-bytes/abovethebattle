@@ -14,6 +14,7 @@ export default class IndexPage extends Component {
               <BlogPost
                 key={edge.node.id}
                 node={edge.node}
+                defaultImage={data.imageDefault.sizes}
                 index={i}
               />
             );
@@ -30,6 +31,11 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query pageQuery {
+    imageDefault: imageSharp(id: { regex: "/logo-symbol.png/" }) {
+      sizes(maxWidth: 500) {
+        ...GatsbyImageSharpSizes
+      }
+    },
     allContentfulBlogPost(
       filter: {
         node_locale: {eq: "en-US"}

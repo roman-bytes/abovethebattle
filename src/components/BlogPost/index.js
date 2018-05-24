@@ -1,104 +1,33 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
-import Img from 'gatsby-image';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Diamond from '../Diamond';
+import MainPost from './MainPost';
+import FeaturedPost from './FeaturedPost';
+import BlogList from './BlogList';
 
 export default class BlogPost extends Component {
   render() {
-    const { node, index } = this.props;
-    // console.log('node', node);
-    const featImage = node.featuredImage && (
-      <Img
-        sizes={node.featuredImage.sizes}
-      />
+    const { node, index, defaultImage } = this.props;
+    const mainPost = index === 0 && (
+      <MainPost post={node} />
     );
-    const postClasses = classNames('post', {
-      'featured': index === 0,
-      'small-featured': index < 4 && index !== 0,
-      'other': index > 4,
-      'margin-top': index === 5
-    });
-    const categories = node.category
-      && Array.prototype.map.call(node.category, s => s.category).toString();
-
+    const featuredPost = index < 4 && index !== 0 && (
+      <FeaturedPost post={node} />
+    );
+    const blogList = index > 4 && (
+      <BlogList post={node} defaultImage={defaultImage} />
+    );
     return (
-      <div className={postClasses}>
-        {index > 4 && featImage}
-        {
-          index > 4 && (
-            <div className='wrap'>
-              {
-                index > 4 && (
-                  <div className='categories'>{categories}</div>
-                )
-              }
-              {
-                index > 4 && (
-                  <h3>{node.title}</h3>
-                )
-              }
-              {
-                index > 4 && index !== 0 && (
-                  <Link
-                  to={node.slug}
-                  className='read-more'
-                  >
-                  READ ARTICLE
-                  </Link>
-                )
-              }
-              {
-                index > 4 && (<p>{node.createdAt}</p>)
-              }
-            </div>
-          )
-        }
-        {
-          index === 0
-            && (
-              <div className='post-heading'>
-                <h1>{node.title}</h1>
-                <Diamond />
-              </div>
-            )
-        }
-        {
-          index < 4 && index !== 0 && (
-            <div className='secondary-heading'>
-              <h2><Link to={node.slug}>{node.title}</Link></h2>
-              <Diamond />
-              <p>
-                Article about:
-                {categories}
-              </p>
-            </div>
-          )
-        }
-        <div>
-          {index < 1 && (
-            <div className='excerpt'>
-              {node.content.childMarkdownRemark.excerpt}
-            </div>
-          )}
-          {
-            index === 0 && (
-              <Link
-              to={node.slug}
-              className='read-more'
-              >
-              READ ARTICLE
-              </Link>
-            )
-          }
-        </div>
-      </div>
+      <Fragment>
+        {mainPost}
+        {featuredPost}
+        {blogList}
+      </Fragment>
     );
   }
 }
 
 BlogPost.propTypes = {
   node: PropTypes.object,
-  index: PropTypes.number
+  index: PropTypes.number,
+  defaultImage: PropTypes.object
 };

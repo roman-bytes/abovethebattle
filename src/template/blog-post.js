@@ -6,10 +6,10 @@ class BlogPost extends Component {
   render() {
     const { data } = this.props;
     const { title, createdAt, featuredImage, content } = data.contentfulBlogPost;
-    const featImage = featuredImage ? featuredImage.sizes : '';
+    const featImage = featuredImage ? featuredImage.sizes : null;
     return (
       <div className='singe-post' >
-        <Img sizes={featImage}/>
+        {featImage && <Img sizes={featImage}/>}
         <h1>
           {title}
         </h1>
