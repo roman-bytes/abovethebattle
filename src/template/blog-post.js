@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
 import Img from 'gatsby-image';
+import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 
 class BlogPost extends Component {
   render() {
     const { data } = this.props;
-    const { title, createdAt, featuredImage, content } = data.contentfulBlogPost;
+    const {
+      title,
+      createdAt,
+      featuredImage,
+      content,
+      author,
+      category
+    } = data.contentfulBlogPost;
     const featImage = featuredImage ? featuredImage.sizes : null;
+    const categories = category
+      && category.map((cat, i) => {
+        const space = i === 0 ? '' : ' | ';
+        return (
+          <Link
+            key={cat.id}
+            to={`categories/${cat.category.toLowerCase()}`}
+          >
+            {`${space}${cat.category}`}
+          </Link>
+        );
+      });
+
     return (
       <div className='singe-post' >
         {featImage && <Img sizes={featImage}/>}
@@ -14,6 +35,8 @@ class BlogPost extends Component {
           {title}
         </h1>
         <div className='post-date'>{createdAt}</div>
+        <div className='categories'>{categories}</div>
+        <div className='author'>{author.author}</div>
         <div
           className='post-content'
           dangerouslySetInnerHTML={{__html:content.childMarkdownRemark.html}}
@@ -34,6 +57,15 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: {eq: $slug}) {
       title
       createdAt(formatString: "MMMM DD, YYYY")
+      category {
+        id
+        category
+      }
+      author {
+        id
+        author
+      }
+      id
       featuredImage {
         sizes {
           base64

@@ -5,10 +5,12 @@ import Img from 'gatsby-image';
 export default class SideImage extends Component {
   render() {
     const { image } = this.props;
+    const style = {
+      background: `url(${image.src})`,
+      backgroundSize: 'cover'
+    };
     return (
-      <div id='side-image'>
-        <Img sizes={image} />
-      </div>
+      <div id='side-image' style={style} />
     );
   }
 }

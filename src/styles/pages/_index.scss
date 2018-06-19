@@ -137,6 +137,15 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             @include margin(15px null);
+
+            a {
+              text-decoration: none;
+              color: $lightgrey;
+
+              &:hover {
+                color: $pink;
+              }
+            }
           }
 
           h3 {

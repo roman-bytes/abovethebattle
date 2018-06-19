@@ -2,3 +2,13 @@ img {
   max-width: 100%;
   width: auto;
 }
+
+:focus {
+  outline: 2px solid $pink;
+  outline-offset: 2px;
+}
+
+button {
+  background: none;
+  border: none;
+}

@@ -12,7 +12,18 @@ export default class BlogList extends Component {
       <Img sizes={defaultImage} />
     );
     const categories = post.category
-      && Array.prototype.map.call(post.category, s => s.category).toString();
+      && post.category.map((cat, i) => {
+        const space = i === 0 ? '' : ' | ';
+        return (
+          <Link
+            key={cat.id}
+            to={`categories/${cat.category.toLowerCase()}`}
+          >
+            {`${space}${cat.category}`}
+          </Link>
+        );
+      });
+
     return (
       <div className='post other'>
         {featImage}

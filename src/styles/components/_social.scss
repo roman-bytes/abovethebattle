@@ -3,6 +3,7 @@
   width: 75px;
   border-right: 1px solid $pink;
   @include position(fixed, 0 null null 0);
+  z-index: 1;
 
   .social-wrap {
     background: white;
@@ -19,5 +20,70 @@
       color: $lightgrey;
       padding: 15px;
     }
+  }
+
+  .navWrap {
+    z-index: 1;
+    min-width: 350px;
+    height: 100vh;
+    background: $white;
+    box-shadow: 16px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    display: block;
+    padding: 40px 15px 0 35px;
+    -webkit-transition: left 0.6s; /* Safari */
+    transition: left 0.6s;
+
+    .close-button {
+      float: right;
+    }
+
+    .gatsby-image-outer-wrapper {
+      width: 35px;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      color: $darkgrey;
+      font-weight: 100;
+      margin: 25px 0;
+    }
+
+    .line {
+      width: 75%;
+      border: 1px solid $darkgrey;
+    }
+
+    .nav {
+      li {
+        margin: 15px 0;
+
+        a {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          text-decoration: none;
+          color: $darkgrey;
+
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+  }
+  .close-menu {
+    left: -350px;
+    -webkit-transition: left 0.6s; /* Safari */
+    transition: left 0.6s;
+  }
+
+  .show-overlay {
+    width: 100vw;
+    height: 100vh;
+    background: $black;
+    opacity: 0.75;
   }
 }

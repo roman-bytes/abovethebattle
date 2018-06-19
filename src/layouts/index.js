@@ -19,9 +19,9 @@ const TemplateWrapper = ({ children, data }) => {
         className='outer-wrapper'
         style={{background: `#ffffff url(${data.imageTwo.sizes.src}) repeat`}}
       >
-        <Social />
+        <Social logo={data.imageLogoBW.sizes} />
         <div className='content-wrapper'>
-          <Header logo={data.imageLogo.sizes}/>
+          <Header logo={data.imageLogo.sizes} />
           {children()}
         </div>
       </div>
@@ -46,6 +46,11 @@ export const imageQuery = graphql`
     }
     imageTwo: imageSharp(id: { regex: "/pattern.png/" }) {
       sizes(maxWidth: 400) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    imageLogoBW: imageSharp(id: { regex: "/logo-symbol-bw.png/" }) {
+      sizes(maxWidth: 286) {
         ...GatsbyImageSharpSizes
       }
     }
