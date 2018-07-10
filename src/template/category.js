@@ -5,7 +5,7 @@ import BlogList from '../components/BlogPost/BlogList';
 export default class CategoryPage extends Component {
   render() {
     const { data } = this.props;
-    const posts = data.contentfulCategory.blogpost
+    const posts = data.contentfulCategory.blogpost;
     return (
       <div className='blog-list'>
         {
@@ -41,6 +41,10 @@ export const categoryQuery = graphql`
       blogpost {
         id
         title
+        category {
+          id
+          category
+        }
         createdAt(formatString: "MMMM DD, YYYY")
         featuredImage {
           sizes {

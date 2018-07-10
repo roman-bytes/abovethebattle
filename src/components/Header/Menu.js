@@ -33,6 +33,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/categories/anxiety'}
+              onClick={() => menuToggle()}
             >
               ANXIETY
             </Link>
@@ -40,6 +41,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/categories/depression'}
+              onClick={() => menuToggle()}
             >
               DEPRESSION
             </Link>
@@ -47,13 +49,15 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/categories/faith'}
+              onClick={() => menuToggle()}
             >
               FAITH
             </Link>
           </li>
           <li>
             <Link
-              to={'/categories/womens issues'}
+              to={'/categories/women\'s%20issues'}
+              onClick={() => menuToggle()}
             >
               WOMEN’S ISSUES
             </Link>
@@ -61,6 +65,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/categories/marriage'}
+              onClick={() => menuToggle()}
             >
               MARRIAGE
             </Link>
@@ -68,6 +73,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/categories/love'}
+              onClick={() => menuToggle()}
             >
               LOVE
             </Link>
@@ -75,6 +81,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/resources'}
+              onClick={() => menuToggle()}
             >
               RESOURCES
             </Link>
@@ -82,6 +89,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/about'}
+              onClick={() => menuToggle()}
             >
               ABOUT
             </Link>
@@ -89,6 +97,7 @@ export default class Menu extends Component {
           <li>
             <Link
               to={'/contact'}
+              onClick={() => menuToggle()}
             >
               CONTACT
             </Link>
