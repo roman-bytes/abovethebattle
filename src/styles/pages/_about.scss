@@ -1,0 +1,22 @@
+.about-page {
+  h1 {
+    font-size: 68px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: $darkgrey;
+    @include margin(45px null 15px);
+  }
+
+  .page-content {
+    @include margin(5% null null null);
+    line-height: 1.5;
+    font-size: 18px;
+    font-family: 'Hind', sans-serif;
+    font-weight: 400;
+    color: $font;
+
+    p {
+      @include margin(null null 30px null);
+    }
+  }
+}

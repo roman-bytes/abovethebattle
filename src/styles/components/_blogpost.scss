@@ -1,5 +1,32 @@
-.singe-post {
+.single-post {
   @include padding(5% null null null);
+
+  .categories {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    color: $font;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    @include margin(15px null);
+
+    a {
+      text-decoration: none;
+      color: $lightgrey;
+      display: inline-block;
+      margin-bottom: 5px;
+
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+
+  .author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: $darkgrey;
+  }
 
   h1 {
     font-size: 68px;

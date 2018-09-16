@@ -29,7 +29,7 @@ class BlogPost extends Component {
       });
 
     return (
-      <div className='singe-post' >
+      <div className='single-post' >
         {featImage && <Img sizes={featImage}/>}
         <h1>
           {title}

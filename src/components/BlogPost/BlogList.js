@@ -35,7 +35,7 @@ export default class BlogList extends Component {
           }
           <h3>{post.title}</h3>
           <Link
-            to={post.slug}
+            to={`/${post.slug}`}
             className='read-more'
           >
             READ ARTICLE
