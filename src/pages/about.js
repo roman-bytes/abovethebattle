@@ -7,11 +7,13 @@ export default class AboutPage extends Component {
     const { data } = this.props;
     const pageData = data.contentfulPage;
     return (
-      <div className='about-page'>
+      <div className="about-page">
         <h1>{pageData.pageTitle}</h1>
         <div
-          className='page-content'
-          dangerouslySetInnerHTML={{__html:pageData.pageContent.childMarkdownRemark.html}}
+          className="page-content"
+          dangerouslySetInnerHTML={{
+            __html: pageData.pageContent.childMarkdownRemark.html,
+          }}
         />
       </div>
     );
@@ -19,25 +21,25 @@ export default class AboutPage extends Component {
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export const aboutPageQuery = graphql`
   query aboutPageQuery {
     contentfulPage(pageSlug: { eq: "about" }) {
       id
-    	pageTitle
-    	pageSlug
-    	pageContent {
-    	  id
+      pageTitle
+      pageSlug
+      pageContent {
+        id
         childMarkdownRemark {
           html
         }
-    	}
-    	contentful_id
-    	createdAt
-    	updatedAt
-    	node_locale
+      }
+      contentful_id
+      createdAt
+      updatedAt
+      node_locale
     }
   }
 `;

@@ -7,13 +7,16 @@ export default class FeaturedPost extends Component {
   render() {
     const { post } = this.props;
 
-    const categories = post.category
-      && Array.prototype.map.call(post.category, s => s.category).toString();
+    const categories =
+      post.category &&
+      Array.prototype.map.call(post.category, s => s.category).toString();
 
     return (
-      <div className='post small-featured'>
-        <div className='secondary-heading'>
-          <h2><Link to={post.slug}>{post.title}</Link></h2>
+      <div className="post small-featured">
+        <div className="secondary-heading">
+          <h2>
+            <Link to={post.slug}>{post.title}</Link>
+          </h2>
           <Diamond />
           <p>
             Article about:
@@ -26,5 +29,5 @@ export default class FeaturedPost extends Component {
 }
 
 FeaturedPost.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
 };

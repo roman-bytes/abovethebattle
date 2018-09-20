@@ -12,34 +12,30 @@ class BlogPost extends Component {
       featuredImage,
       content,
       author,
-      category
+      category,
     } = data.contentfulBlogPost;
     const featImage = featuredImage ? featuredImage.sizes : null;
-    const categories = category
-      && category.map((cat, i) => {
+    const categories =
+      category &&
+      category.map((cat, i) => {
         const space = i === 0 ? '' : ' | ';
         return (
-          <Link
-            key={cat.id}
-            to={`categories/${cat.category.toLowerCase()}`}
-          >
+          <Link key={cat.id} to={`categories/${cat.category.toLowerCase()}`}>
             {`${space}${cat.category}`}
           </Link>
         );
       });
 
     return (
-      <div className='single-post' >
-        {featImage && <Img sizes={featImage}/>}
-        <h1>
-          {title}
-        </h1>
-        <div className='post-date'>{createdAt}</div>
-        <div className='categories'>{categories}</div>
-        <div className='author'>{author.author}</div>
+      <div className="single-post">
+        {featImage && <Img sizes={featImage} />}
+        <h1>{title}</h1>
+        <div className="post-date">{createdAt}</div>
+        <div className="categories">{categories}</div>
+        <div className="author">{`by: ${author.author}`}</div>
         <div
-          className='post-content'
-          dangerouslySetInnerHTML={{__html:content.childMarkdownRemark.html}}
+          className="post-content"
+          dangerouslySetInnerHTML={{ __html: content.childMarkdownRemark.html }}
         />
       </div>
     );
@@ -47,14 +43,14 @@ class BlogPost extends Component {
 }
 
 BlogPost.PropTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 };
 
 export default BlogPost;
 
 export const pageQuery = graphql`
-  query blogPostQuery($slug: String!){
-    contentfulBlogPost(slug: {eq: $slug}) {
+  query blogPostQuery($slug: String!) {
+    contentfulBlogPost(slug: { eq: $slug }) {
       title
       createdAt(formatString: "MMMM DD, YYYY")
       category {

@@ -7,26 +7,24 @@ export default class IndexPage extends Component {
   render() {
     const { data } = this.props;
     return (
-      <div className='post-list'>
-        {
-          data.allContentfulBlogPost.edges.map((edge, i) => {
-            return (
-              <BlogPost
-                key={edge.node.id}
-                node={edge.node}
-                defaultImage={data.imageDefault.sizes}
-                index={i}
-              />
-            );
-          })
-        }
+      <div className="post-list">
+        {data.allContentfulBlogPost.edges.map((edge, i) => {
+          return (
+            <BlogPost
+              key={edge.node.id}
+              node={edge.node}
+              defaultImage={data.imageDefault.sizes}
+              index={i}
+            />
+          );
+        })}
       </div>
     );
   }
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export const pageQuery = graphql`
@@ -35,14 +33,10 @@ export const pageQuery = graphql`
       sizes(maxWidth: 500) {
         ...GatsbyImageSharpSizes
       }
-    },
+    }
     allContentfulBlogPost(
-      filter: {
-        node_locale: {eq: "en-US"}
-      },
-      sort: {
-        fields: [order, createdAt], order: DESC
-      }
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: [order, createdAt], order: DESC }
     ) {
       edges {
         node {

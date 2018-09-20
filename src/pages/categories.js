@@ -8,24 +8,17 @@ export default class CategoriesPage extends Component {
     const { data } = this.props;
     const categories = data.allContentfulCategory.edges;
     return (
-      <div className='category-list'>
-        {
-          categories.map(category => {
-            return (
-              <CategoryList
-                key={category.node.id}
-                node={category.node}
-              />
-            );
-          })
-        }
+      <div className="category-list">
+        {categories.map(category => {
+          return <CategoryList key={category.node.id} node={category.node} />;
+        })}
       </div>
     );
   }
 }
 
 CategoriesPage.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export const categoryPageQuery = graphql`

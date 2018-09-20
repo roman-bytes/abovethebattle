@@ -11,94 +11,68 @@ export default class Menu extends Component {
     const { logo, menuState, menuToggle } = this.props;
 
     return (
-      <div className={
-        classNames(
+      <div
+        className={classNames(
           'navWrap',
           menuState ? 'open-menu' : 'close-menu'
         )}
       >
         <button
-          className='close-button'
+          className="close-button"
           onClick={() => menuToggle()}
-          type='button'
+          type="button"
         >
-          <FontAwesomeIcon
-            icon={['fas', 'times']}
-          />
+          <FontAwesomeIcon icon={['fas', 'times']} />
         </button>
-        <Img sizes={logo} ariaHidden='true'/>
+        <Img sizes={logo} ariaHidden="true" />
         <h2>ABOVE THE BATTLE</h2>
-        <div className='line' />
-        <ul className='nav'>
+        <div className="line" />
+        <ul className="nav">
           <li>
-            <Link
-              to={'/categories/anxiety'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/categories/anxiety'} onClick={() => menuToggle()}>
               ANXIETY
             </Link>
           </li>
           <li>
-            <Link
-              to={'/categories/depression'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/categories/depression'} onClick={() => menuToggle()}>
               DEPRESSION
             </Link>
           </li>
           <li>
-            <Link
-              to={'/categories/faith'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/categories/faith'} onClick={() => menuToggle()}>
               FAITH
             </Link>
           </li>
           <li>
             <Link
-              to={'/categories/women\'s%20issues'}
+              to={"/categories/women's%20issues"}
               onClick={() => menuToggle()}
             >
               WOMEN’S ISSUES
             </Link>
           </li>
           <li>
-            <Link
-              to={'/categories/marriage'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/categories/marriage'} onClick={() => menuToggle()}>
               MARRIAGE
             </Link>
           </li>
           <li>
-            <Link
-              to={'/categories/love'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/categories/love'} onClick={() => menuToggle()}>
               LOVE
             </Link>
           </li>
           <li>
-            <Link
-              to={'/resources'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/resources'} onClick={() => menuToggle()}>
               RESOURCES
             </Link>
           </li>
           <li>
-            <Link
-              to={'/about'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/about'} onClick={() => menuToggle()}>
               ABOUT
             </Link>
           </li>
           <li>
-            <Link
-              to={'/contact'}
-              onClick={() => menuToggle()}
-            >
+            <Link to={'/contact'} onClick={() => menuToggle()}>
               CONTACT
             </Link>
           </li>
@@ -111,5 +85,5 @@ export default class Menu extends Component {
 Menu.propTypes = {
   logo: PropTypes.object,
   menuState: PropTypes.bool,
-  menuToggle: PropTypes.func
+  menuToggle: PropTypes.func,
 };

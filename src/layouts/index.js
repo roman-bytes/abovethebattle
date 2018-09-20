@@ -16,11 +16,11 @@ const TemplateWrapper = ({ children, data }) => {
         ]}
       />
       <div
-        className='outer-wrapper'
-        style={{background: `#ffffff url(${data.imageTwo.sizes.src}) repeat`}}
+        className="outer-wrapper"
+        style={{ background: `#ffffff url(${data.imageTwo.sizes.src}) repeat` }}
       >
         <Social logo={data.imageLogoBW.sizes} />
-        <div className='content-wrapper'>
+        <div className="content-wrapper">
           <Header logo={data.imageLogo.sizes} />
           {children()}
         </div>
@@ -32,7 +32,7 @@ const TemplateWrapper = ({ children, data }) => {
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export default TemplateWrapper;

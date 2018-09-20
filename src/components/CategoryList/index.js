@@ -7,8 +7,8 @@ export default class CategoryList extends Component {
     const { node } = this.props;
     const slugCategory = node.category.toLowerCase();
     return (
-      <div className='category'>
-        <Link to={`${slugCategory}`} >{node.category}</Link>
+      <div className="category">
+        <Link to={`${slugCategory}`}>{node.category}</Link>
       </div>
     );
   }

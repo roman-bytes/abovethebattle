@@ -7,12 +7,9 @@ import BlogList from './BlogList';
 export default class BlogPost extends Component {
   render() {
     const { node, index, defaultImage } = this.props;
-    const mainPost = index === 0 && (
-      <MainPost post={node} />
-    );
-    const featuredPost = index < 4 && index !== 0 && (
-      <FeaturedPost post={node} />
-    );
+    const mainPost = index === 0 && <MainPost post={node} />;
+    const featuredPost = index < 4 &&
+      index !== 0 && <FeaturedPost post={node} />;
     const blogList = index > 4 && (
       <BlogList post={node} defaultImage={defaultImage} />
     );
@@ -29,5 +26,5 @@ export default class BlogPost extends Component {
 BlogPost.propTypes = {
   node: PropTypes.object,
   index: PropTypes.number,
-  defaultImage: PropTypes.object
+  defaultImage: PropTypes.object,
 };

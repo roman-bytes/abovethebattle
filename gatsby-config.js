@@ -4,6 +4,12 @@ module.exports = {
   },
   plugins: [
     {
+     resolve: 'gatsby-plugin-html-attributes',
+     options: {
+       lang: 'en'
+     }
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: 't8j0ewtik3c3',

@@ -7,14 +7,12 @@ export default class SideImage extends Component {
     const { image } = this.props;
     const style = {
       background: `url(${image.src})`,
-      backgroundSize: 'cover'
+      backgroundSize: 'cover',
     };
-    return (
-      <div id='side-image' style={style} />
-    );
+    return <div id="side-image" style={style} />;
   }
 }
 
 SideImage.propTypes = {
-  image: PropTypes.object.isRequired
+  image: PropTypes.object.isRequired,
 };

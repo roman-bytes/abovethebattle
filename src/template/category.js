@@ -8,25 +8,23 @@ export default class CategoryPage extends Component {
     const posts = data.contentfulCategory.blogpost;
 
     return (
-      <div className='blog-list'>
-        {
-          posts.map(post => {
-            return (
-              <BlogList
-                key={post.id}
-                post={post}
-                defaultImage={data.imageDefault.sizes}
-              />
-            );
-          })
-        }
+      <div className="blog-list">
+        {posts.map(post => {
+          return (
+            <BlogList
+              key={post.id}
+              post={post}
+              defaultImage={data.imageDefault.sizes}
+            />
+          );
+        })}
       </div>
     );
   }
 }
 
 CategoryPage.PropTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export const categoryQuery = graphql`
@@ -35,7 +33,7 @@ export const categoryQuery = graphql`
       sizes(maxWidth: 500) {
         ...GatsbyImageSharpSizes
       }
-    },
+    }
     contentfulCategory(category: { eq: $category }) {
       id
       category

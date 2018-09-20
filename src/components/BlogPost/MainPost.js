@@ -7,21 +7,18 @@ export default class MainPost extends Component {
   render() {
     const { post } = this.props;
     return (
-      <div className='post featured'>
-        <div className='post-heading'>
+      <div className="post featured">
+        <div className="post-heading">
           <h1>{post.title}</h1>
           <Diamond />
         </div>
         <div>
-          <div className='excerpt'>
+          <div className="excerpt">
             {post.content.childMarkdownRemark.excerpt}
           </div>
-            <Link
-              to={post.slug}
-              className='read-more'
-            >
-              READ ARTICLE
-            </Link>
+          <Link to={post.slug} className="read-more">
+            READ ARTICLE
+          </Link>
         </div>
       </div>
     );
@@ -29,5 +26,5 @@ export default class MainPost extends Component {
 }
 
 MainPost.propTypes = {
-  post: PropTypes.object
+  post: PropTypes.object,
 };

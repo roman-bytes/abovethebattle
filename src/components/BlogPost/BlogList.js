@@ -11,33 +11,24 @@ export default class BlogList extends Component {
     ) : (
       <Img sizes={defaultImage} />
     );
-    const categories = post.category
-      && post.category.map((cat, i) => {
+    const categories =
+      post.category &&
+      post.category.map((cat, i) => {
         const space = i === 0 ? '' : ' | ';
         return (
-          <Link
-            key={cat.id}
-            to={`categories/${cat.category.toLowerCase()}`}
-          >
+          <Link key={cat.id} to={`categories/${cat.category.toLowerCase()}`}>
             {`${space}${cat.category}`}
           </Link>
         );
       });
 
     return (
-      <div className='post other'>
+      <div className="post other">
         {featImage}
-        <div className='wrap'>
-          {
-            categories && (
-              <div className='categories'>{categories}</div>
-            )
-          }
+        <div className="wrap">
+          {categories && <div className="categories">{categories}</div>}
           <h3>{post.title}</h3>
-          <Link
-            to={`/${post.slug}`}
-            className='read-more'
-          >
+          <Link to={`/${post.slug}`} className="read-more">
             READ ARTICLE
           </Link>
           <p>{post.createdAt}</p>
@@ -49,5 +40,5 @@ export default class BlogList extends Component {
 
 BlogList.propTypes = {
   post: PropTypes.object,
-  defaultImage: PropTypes.object
+  defaultImage: PropTypes.object,
 };
