@@ -1,12 +1,45 @@
-import React from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import '../styles/main.scss';
 
-const Resources = () => (
-  <div>
-    <h1>Hi from the resources page</h1>
-    <p>Welcome to page resources</p>
-    <Link to="/">Go back to the homepage</Link>
-  </div>
-);
+export default class Resources extends Component {
+  render() {
+    const { data } = this.props;
+    const pageData = data.contentfulPage;
+    return (
+      <div className="resource-page">
+        <h1>{pageData.pageTitle}</h1>
+        <div
+          className="page-content"
+          dangerouslySetInnerHTML={{
+            __html: pageData.pageContent.childMarkdownRemark.html,
+          }}
+        />
+      </div>
+    );
+  }
+}
 
-export default Resources;
+Resources.propTypes = {
+  data: PropTypes.object
+};
+
+export const resourcesPageQuery = graphql`
+  query resourcesPageQuery {
+    contentfulPage(pageSlug: { eq: "resources" }) {
+      id
+      pageTitle
+      pageSlug
+      pageContent {
+        id
+        childMarkdownRemark {
+          html
+        }
+      }
+      contentful_id
+      createdAt
+      updatedAt
+      node_locale
+    }
+  }
+`;
