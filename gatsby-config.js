@@ -1,8 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Above the Battle Blog',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-9709289-16',
+        head: true,
+        anonymize: true,
+      },
+    },
     {
      resolve: 'gatsby-plugin-html-attributes',
      options: {
