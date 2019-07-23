@@ -10,21 +10,22 @@ const TemplateWrapper = ({ children, data }) => {
     <div>
       <Helmet
         title="Above the battle blog"
+        htmlAttributes={{
+          lang: 'en'
+        }}
+        lang="en"
         meta={[
           { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'keywords', content: 'sample, something' }
         ]}
       />
-      <div
-        className="outer-wrapper"
-        style={{ background: `#ffffff url(${data.imageTwo.sizes.src}) repeat` }}
-      >
+      <main className="outer-wrapper" style={{ background: `#ffffff` }}>
         <Social logo={data.imageLogoBW.sizes} />
         <div className="content-wrapper">
           <Header logo={data.imageLogo.sizes} />
           {children()}
         </div>
-      </div>
+      </main>
       <SideImage image={data.imageOne.sizes} />
     </div>
   );
@@ -32,7 +33,7 @@ const TemplateWrapper = ({ children, data }) => {
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-  data: PropTypes.object,
+  data: PropTypes.object
 };
 
 export default TemplateWrapper;

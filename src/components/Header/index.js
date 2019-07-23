@@ -7,7 +7,7 @@ export default class Header extends Component {
     const { logo } = this.props;
     return (
       <div className="header">
-        <a href="/" ariaLabel="Above the battle homepage">
+        <a href="/" aria-label="Above the battle homepage">
           <Img sizes={logo} ariaHidden="true" />
         </a>
       </div>
@@ -16,5 +16,5 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  logo: PropTypes.object,
+  logo: PropTypes.object
 };

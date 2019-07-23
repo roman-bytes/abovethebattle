@@ -3,11 +3,12 @@
  */
 $black: #000000;
 $white: #ffffff;
-$pink: #FB3053;
-$lightgrey: #CECECE;
+// $pink: #FB3053;
+$pink: #ec0040;
+$lightgrey: #333;
 $darkgrey: #57575E;
-$featuredText: #AFAFAF;
-$font: #7c7676;
+$featuredText: rgb(59, 59, 59);
+$font: #333;
 
 /*
  * Typography
@@ -24,8 +25,6 @@ $font: #7c7676;
  @mixin flex-grid {
    display: flex;
    flex-wrap: wrap;
-   // margin-left: -$gutter;
-   // margin-top: -$gutter;
  }
 
  @mixin flex-item($min-width, $max-cols) {

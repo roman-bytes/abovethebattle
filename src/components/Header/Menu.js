@@ -16,15 +16,17 @@ export default class Menu extends Component {
           'navWrap',
           menuState ? 'open-menu' : 'close-menu'
         )}
+        aria-hidden={!menuState}
       >
         <button
           className="close-button"
           onClick={() => menuToggle()}
           type="button"
+          aria-label="close menu"
         >
           <FontAwesomeIcon icon={['fas', 'times']} />
         </button>
-        <Img sizes={logo} ariaHidden="true" />
+        <Img sizes={logo} ariaHidden="true" alt="Above the battle logo" />
         <h2>ABOVE THE BATTLE</h2>
         <div className="line" />
         <ul className="nav">
@@ -85,5 +87,5 @@ export default class Menu extends Component {
 Menu.propTypes = {
   logo: PropTypes.object,
   menuState: PropTypes.bool,
-  menuToggle: PropTypes.func,
+  menuToggle: PropTypes.func
 };

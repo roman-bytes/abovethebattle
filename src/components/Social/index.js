@@ -10,7 +10,7 @@ export default class Social extends Component {
     super();
 
     this.state = {
-      showMenu: false,
+      showMenu: false
     };
 
     this.openMenu = this.openMenu.bind(this);
@@ -18,7 +18,7 @@ export default class Social extends Component {
 
   openMenu() {
     this.setState(prevState => ({
-      showMenu: !prevState.showMenu,
+      showMenu: !prevState.showMenu
     }));
   }
 
@@ -34,21 +34,32 @@ export default class Social extends Component {
           menuToggle={() => this.openMenu()}
         />
         <div className="social-wrap">
-          <button type="button" onClick={() => this.openMenu()}>
+          <button
+            type="button"
+            aria-label="Open menu"
+            onClick={() => this.openMenu()}
+          >
             <Hamburger />
           </button>
-          <a href="https://www.facebook.com/ashley.roman.391082?fref=ts">
+          <a
+            aria-label="Facebook"
+            href="https://www.facebook.com/ashley.roman.391082?fref=ts"
+          >
             <FontAwesomeIcon icon={['fab', 'facebook']} size="2x" />
           </a>
-          <a href="https://twitter.com/Ashley_Manzo">
+          <a aria-label="Twitter" href="https://twitter.com/Ashley_Manzo">
             <FontAwesomeIcon icon={['fab', 'twitter']} size="2x" />
           </a>
-          <a href="https://www.instagram.com/romanashley09/">
+          <a
+            aria-label="Instagram"
+            href="https://www.instagram.com/romanashley09/"
+          >
             <FontAwesomeIcon icon={['fab', 'instagram']} size="2x" />
           </a>
         </div>
         <div
           className={showMenu ? 'show-overlay' : 'hide-overlay'}
+          aria-hidden={showMenu}
           onClick={() => this.openMenu()}
         />
       </div>
@@ -57,5 +68,5 @@ export default class Social extends Component {
 }
 
 Social.propTypes = {
-  logo: PropTypes.object,
+  logo: PropTypes.object
 };
