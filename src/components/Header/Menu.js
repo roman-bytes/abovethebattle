@@ -64,18 +64,8 @@ export default class Menu extends Component {
             </Link>
           </li>
           <li>
-            <Link to={'/resources'} onClick={() => menuToggle()}>
-              RESOURCES
-            </Link>
-          </li>
-          <li>
             <Link to={'/about'} onClick={() => menuToggle()}>
               ABOUT
-            </Link>
-          </li>
-          <li>
-            <Link to={'/contact'} onClick={() => menuToggle()}>
-              CONTACT
             </Link>
           </li>
         </ul>
